@@ -1,0 +1,9 @@
+spring.profiles.include: 'paas-conf'
+banner:
+  location: classpath:banner.txt
+info:
+  component: paas-kickstart
+server:
+  port: 9011
+
+

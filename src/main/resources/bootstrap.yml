@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: paas-kickstart
+    title: Logo PAAS Kickstart
+    description: Logo Paas Kickstart
+    termsOfServiceUrl: http://www.logo.com.tr
+    contact: Samet SEVİM
+    license: Apache License Version 2.0
+    version: 1.0.0
+
+spring.profiles.active: dev

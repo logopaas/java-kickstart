@@ -1,0 +1,41 @@
+eureka:
+  client:
+    enabled: true
+idm:
+  enabled: true
+  authorize:
+    url: http://dev-linux.logo-paas.com:5100/legacy/sts/api/oauth/authorize
+  logout:
+    url: http://dev-linux.logo-paas.com:5100/legacy/sts/api/account/logout
+  token:
+    url: http://dev-linux.logo-paas.com:5100/legacy/sts/api/oauth/token
+  client:
+    id: 2716253d-cd94-42a5-b162-5d114d8f5f67
+    secret: bf8af4ef-297b-4dac-8fdc-fd0c9f36d92c
+    version: v1.0
+lbs:
+  service:
+    grc-frm:
+      basePath: /
+    grc-aws:
+      basePath: /
+    authorization:
+      basePath: /v1_0/NAF.Services.Authorization.WAS
+    cloudcontrol:
+      basePath: /v1_0/NAF.Services.CloudControl.APIWebService
+    idp:
+      basePath: /v1_0/NAF.Services.IDP.WAS
+      serviceId: NAFCORESERVICESIDM
+    menu:
+      basePath: /v1_0/NAF.Services.Menu.APIWebService
+    tokenparser:
+      basePath: /v1_0/NAF.Services.Sts.TokenParser.WAS
+      serviceId: NAFCORESERVICESIDM
+    securityinfo:
+      basePath: /v1_0/NAF.Services.SecurityInfo.WAS
+      serviceId: NAFCORESERVICESIDM
+    settings:
+      basePath: /
+    localization-service:
+      basePath: /localization/v1
+eureka.client.serviceUrl.defaultZone: http://dev-linux.logo-paas.com:8761/eureka
