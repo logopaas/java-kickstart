@@ -19,6 +19,7 @@
 		<vaadin.version>8.7.1</vaadin.version>
 		<lbs.oauth-client-9>3.3-SNAPSHOT</lbs.oauth-client-9>
 		<lbs.version>1.18.04</lbs.version>
+		<forms.version>1.1-SNAPSHOT</forms.version>
 	</properties>
 
 	<dependencies>
