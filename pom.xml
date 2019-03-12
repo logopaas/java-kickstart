@@ -34,6 +34,10 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 
 		<!--Oauth Client-->
 		<dependency>
@@ -46,6 +50,14 @@
 			<artifactId>LbsBaseMicroService</artifactId>
 			<version>${lbs.version}</version>
 		</dependency>
+
+		<!--Kafka Integration-->
+		<dependency>
+			<groupId>com.lbs.paas.api</groupId>
+			<artifactId>LbsMessaging</artifactId>
+			<version>${lbs.version}</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
 		<dependency>
 			<groupId>javax.persistence</groupId>

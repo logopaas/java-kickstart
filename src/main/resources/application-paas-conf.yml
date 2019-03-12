@@ -13,6 +13,12 @@ idm:
     id: 2716253d-cd94-42a5-b162-5d114d8f5f67
     secret: bf8af4ef-297b-4dac-8fdc-fd0c9f36d92c
     version: v1.0
+
+kafka:
+  enabled: true
+  bootstrap:
+    servers: dev-services.logo-paas.com:9092
+
 lbs:
   service:
     grc-frm:
