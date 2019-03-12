@@ -5,7 +5,7 @@
 ### Project Structure
     Requirements:
       * Java 1.8
-      * Spring Framework Boot > 2.x.x (web)
+      * Spring Framework Boot > 1.5.9 (web)
     
 IDM Integration  
   
