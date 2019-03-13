@@ -1,23 +1,25 @@
 eureka:
   client:
     enabled: true
+    serviceUrl:
+      defaultZone: http://test-services-b.logo-paas.com:8761/eureka
 idm:
   enabled: true
   authorize:
-    url: http://dev-linux.logo-paas.com:5100/legacy/sts/api/oauth/authorize
+    url: http://test-services-b.logo-paas.com:5101/legacy/sts/api/oauth/authorize
   logout:
-    url: http://dev-linux.logo-paas.com:5100/legacy/sts/api/account/logout
+    url: http://test-services-b.logo-paas.com:5101/legacy/sts/api/account/logout
   token:
-    url: http://dev-linux.logo-paas.com:5100/legacy/sts/api/oauth/token
+    url: http://test-services-b.logo-paas.com:5101/legacy/sts/api/oauth/token
   client:
-    id: 2716253d-cd94-42a5-b162-5d114d8f5f67
-    secret: bf8af4ef-297b-4dac-8fdc-fd0c9f36d92c
+    id: a3f0fd26-e393-4a4d-beef-81c83cb35c96
+    secret: 262c618f-53de-4d5c-b527-766ab339cf3f
     version: v1.0
 
 kafka:
   enabled: true
   bootstrap:
-    servers: dev-services.logo-paas.com:9092
+    servers: test-services-a.logo-paas.com:9092
 
 lbs:
   serviceRegistration:
@@ -29,6 +31,7 @@ lbs:
       basePath: /
     authorization:
       basePath: /v1_0/NAF.Services.Authorization.WAS
+      serviceId: NAFCORESERVICESAUTHORIZATION
     cloudcontrol:
       basePath: /v1_0/NAF.Services.CloudControl.APIWebService
     idp:
@@ -44,9 +47,9 @@ lbs:
       serviceId: NAFCORESERVICESIDM
     settings:
       basePath: /
+      serviceId: NAFCORESERVICESSETTINGS
     localization-service:
       basePath: /localization/v1
     messageregistry:
       basePath: /
-      serviceId: NAFCORESERVICESIDM
-eureka.client.serviceUrl.defaultZone: http://dev-linux.logo-paas.com:8761/eureka
+      serviceId: NAFCORESERVICESMESSAGEREGISTRY

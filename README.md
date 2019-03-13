@@ -114,7 +114,24 @@ Set the PaaS version in your `<properties>` section
 
 See our [Documentation](http://wiki.logo.com.tr/pages/viewpage.action?pageId=65132817).
 
+### Links
 
-### Licenses
+[Kafka UI](http://localhost:9011/kafka)
 
-`PaaS` are licensed under the ...
+[Cloud Control](http://test-win.logo-paas.com/cloudcontrolui)
+
+[Activworks](http://test-services-b.logo-paas.com:8081)
+
+### Screenshots
+
+Local Kafka Integration UI
+![alt text](https://i.ibb.co/484kfZK/kafka1.png)
+
+
+Registered Kafka Topic
+![alt text](https://i.ibb.co/KW9HPjT/registered-Message.png)
+
+
+Process Definition
+![alt text](https://i.ibb.co/12C1YP8/pd.png)
+

@@ -57,7 +57,7 @@ public class KafkaIntegrationUI extends UI {
                 return;
             }
             Date date = Date.from(birtDateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            kafkaService.createUser(context.getBean(LoggedInUserImpl.class).getTenantId(), usernameField.getValue(), firstNameField.getValue(), lastNameField.getValue(), date);
+            kafkaService.createUser("8bc6ba5c-b1ed-4d67-a434-e82e940ff389", usernameField.getValue(), firstNameField.getValue(), lastNameField.getValue(), date);
             usernameField.setValue("");
             lastNameField.setValue("");
             firstNameField.setValue("");

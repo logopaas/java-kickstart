@@ -28,28 +28,27 @@ import java.util.UUID;
 public class PaasKickStartServiceConfig extends LbsAbstractBaseMicroServiceConfig
 {
 
-//    @Value("${idm.client.id}")
-//    private String clientId;
-//    @Value("${idm.client.secret}")
-//    private String clientSecret;
-//    @Value("${docService.eureka.service.id}")
-//    private String eurekaServiceId;
-//
-//    @Bean
-//    LbsApplicationParametersProvider LbsApplicationParametersProvider() {
-//        return new LbsApplicationParametersProviderImpl(
-//                LbsApplicationType.PRODUCT,
-//                UUID.fromString(clientId),
-//                UUID.fromString(clientId),
-//                eurekaServiceId,
-//                eurekaServiceId,
-//                clientSecret,
-//                clientSecret,
-//                "1",
-//                "GRC-DOCSERVICE",
-//                null,
-//                null);
-//    }
+
+    @Value("${idm.client.id}")
+    private String clientId;
+    @Value("${idm.client.secret}")
+    private String clientSecret;
+
+    @Bean
+    LbsApplicationParametersProvider LbsApplicationParametersProvider() {
+        return new LbsApplicationParametersProviderImpl(
+                LbsApplicationType.PRODUCT,
+                null,
+                UUID.fromString(clientId),
+                "Paas-Kickstart",
+				clientId,
+                clientSecret,
+                clientId,
+                "1.0",
+                "Paas-Kickstart",
+                null,
+                null);
+    }
 
 	@Bean
 	protected FilterRegistrationBean oaFilter(Environment env) {

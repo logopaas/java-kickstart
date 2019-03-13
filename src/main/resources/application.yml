@@ -1,4 +1,4 @@
-spring.profiles.include: 'paas-conf'
+spring.profiles.include: 'paas-test-conf'
 banner:
   location: classpath:banner.txt
 info:

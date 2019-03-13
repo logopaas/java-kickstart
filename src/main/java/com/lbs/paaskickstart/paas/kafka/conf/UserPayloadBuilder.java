@@ -16,10 +16,10 @@ public class UserPayloadBuilder implements LbsProducerPayloadBuilder<UserDTO>
                                   LbsMessage lbsMessage, Object bean, Method method, String[] parameterNames,
                                   Object[] actualParameterValues, Object returnValue, Exception e) throws Exception {
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserName((String) actualParameterValues[2]);
-        userDTO.setFirstName((String) actualParameterValues[3]);
-        userDTO.setLastName((String) actualParameterValues[4]);
-        userDTO.setBirthDate((Date) actualParameterValues[5]);
+        userDTO.setUserName((String) actualParameterValues[1]);
+        userDTO.setFirstName((String) actualParameterValues[2]);
+        userDTO.setLastName((String) actualParameterValues[3]);
+        userDTO.setBirthDate((Date) actualParameterValues[4]);
         return userDTO;
     }
 

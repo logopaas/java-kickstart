@@ -15,7 +15,7 @@ import java.util.Date;
 
 @Component
 @EnableKafka
-//@EnableLbsMessaging
+@EnableLbsMessaging
 @Log4j
 public class KafkaService {
 
