@@ -9,6 +9,7 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 
 import java.time.ZoneId;
@@ -22,6 +23,8 @@ public class KafkaIntegrationUI extends UI {
     @Autowired
     private ApplicationContext context;
 
+    @Value("${default.tenant.id}")
+    private String tenantId;
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         Panel contentPanel = new Panel();
@@ -57,7 +60,7 @@ public class KafkaIntegrationUI extends UI {
                 return;
             }
             Date date = Date.from(birtDateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            kafkaService.createUser("8bc6ba5c-b1ed-4d67-a434-e82e940ff389", usernameField.getValue(), firstNameField.getValue(), lastNameField.getValue(), date);
+            kafkaService.createUser(tenantId, usernameField.getValue(), firstNameField.getValue(), lastNameField.getValue(), date);
             usernameField.setValue("");
             lastNameField.setValue("");
             firstNameField.setValue("");

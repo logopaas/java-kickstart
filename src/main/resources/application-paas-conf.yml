@@ -1,6 +1,11 @@
+default:
+  tenant:
+    id: a30d4101-a736-435f-b1dc-2b05abfb62f2
 eureka:
   client:
     enabled: true
+    serviceUrl:
+      defaultZone: http://dev-linux.logo-paas.com:8761/eureka
 idm:
   enabled: true
   authorize:
@@ -29,6 +34,7 @@ lbs:
       basePath: /
     authorization:
       basePath: /v1_0/NAF.Services.Authorization.WAS
+      serviceId: NAFCORESERVICESAUTHORIZATION
     cloudcontrol:
       basePath: /v1_0/NAF.Services.CloudControl.APIWebService
     idp:
@@ -44,9 +50,9 @@ lbs:
       serviceId: NAFCORESERVICESIDM
     settings:
       basePath: /
+      serviceId: NAFCORESERVICESSETTINGS
     localization-service:
       basePath: /localization/v1
     messageregistry:
       basePath: /
-      serviceId: NAFCORESERVICESIDM
-eureka.client.serviceUrl.defaultZone: http://dev-linux.logo-paas.com:8761/eureka
+      serviceId: NAFCORESERVICESMESSAGEREGISTRY
