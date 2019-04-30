@@ -25,5 +25,6 @@ public class TokenRetrievedEventListener implements ApplicationListener<TokenRet
         loggedInUser.setLastName(dto.getSurname());
         loggedInUser.setId(dto.getUserId());
         loggedInUser.setToken(event.getToken());
+        loggedInUser.setTenantId(dto.getTenantId());
     }
 }

@@ -36,7 +36,8 @@ lbs:
       basePath: /v1_0/NAF.Services.Authorization.WAS
       serviceId: NAFCORESERVICESAUTHORIZATION
     cloudcontrol:
-      basePath: /v1_0/NAF.Services.CloudControl.APIWebService
+      basePath: /
+      contextPath: /v1_0/NAF.Services.CloudControl.ApiWebService
     idp:
       basePath: /v1_0/NAF.Services.IDP.WAS
       serviceId: NAFCORESERVICESIDM

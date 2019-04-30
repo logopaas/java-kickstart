@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 
+import java.rmi.registry.Registry;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -23,8 +24,7 @@ public class KafkaIntegrationUI extends UI {
     @Autowired
     private ApplicationContext context;
 
-    @Value("${default.tenant.id}")
-    private String tenantId;
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         Panel contentPanel = new Panel();
@@ -37,7 +37,6 @@ public class KafkaIntegrationUI extends UI {
         contentPanel.addStyleName(ValoTheme.PANEL_WELL);
 //        initMenuRegisterLayout();
         setContent(contentLayout);
-        initKafkaIntegrationLayout();
         FormLayout kafkaIntegrationLayout = new FormLayout();
         TextField usernameField = new TextField("Username");
         TextField firstNameField = new TextField("First Name");
@@ -60,7 +59,7 @@ public class KafkaIntegrationUI extends UI {
                 return;
             }
             Date date = Date.from(birtDateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            kafkaService.createUser(tenantId, usernameField.getValue(), firstNameField.getValue(), lastNameField.getValue(), date);
+            kafkaService.createUser(context.getBean(LoggedInUserImpl.class).getTenantId(), usernameField.getValue(), firstNameField.getValue(), lastNameField.getValue(), date);
             usernameField.setValue("");
             lastNameField.setValue("");
             firstNameField.setValue("");
@@ -69,37 +68,5 @@ public class KafkaIntegrationUI extends UI {
         contentPanel.setContent(detailLayout);
     }
 
-    private void initKafkaIntegrationLayout() {
 
-
-
-
-    }
-
-
-    //TODO implement kafka intg. first
-//    private void initMenuRegisterLayout(){
-//        HorizontalLayout menuServiceLayout = new HorizontalLayout();
-//        menuServiceLayout.setCaption("Menu Service Integration");
-//        menuServiceLayout.setMargin(true);
-//        menuServiceLayout.setWidth(100, Unit.PERCENTAGE);
-//        menuServiceLayout.setStyleName(ValoTheme.LAYOUT_CARD);
-//        TextField captionField = new TextField("Menu Caption");
-//        TextField urlField = new TextField("Url");
-//        Button saveButton = new Button("Save");
-//        saveButton.addClickListener(e-> {
-//            if(StringUtils.isBlank(urlField.getValue()) || StringUtils.isBlank(captionField.getValue())){
-//                Notification.show("Please fill all required fields");
-//            }
-//            urlField.setValue("");
-//            captionField.setValue("");
-//            Notification.show("Menu registration status : " + result);
-//        });
-//
-//        menuServiceLayout.addComponents(captionField, urlField, saveButton);
-//        menuServiceLayout.setComponentAlignment(saveButton, Alignment.BOTTOM_RIGHT);
-//        urlField.setWidth(100, Unit.PERCENTAGE);
-//        menuServiceLayout.setExpandRatio(urlField, 1.0f);
-//        contentLayout.addComponent(menuServiceLayout);
-//    }
 }
