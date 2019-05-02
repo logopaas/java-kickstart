@@ -31,6 +31,6 @@ public class KafkaService {
     @LbsMessageConsumer(topic = USER_TOPIC, parameterBuilderClass = UserParameterBuilder.class)
     public void fetchUser(@LbsTenantId String tenantId, String username, String firstName, String lastName, Date birthDate)
     {
-        log.info("User created kafka message fetched for Username(FullName) : "+ username + " ( " + firstName + " " + lastName + " )");
+//        log.info("User created kafka message fetched for Username(FullName) : "+ username + " ( " + firstName + " " + lastName + " )");
     }
 }
