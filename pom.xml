@@ -105,29 +105,19 @@
 	<repositories>
 		<repository>
 			<id>public</id>
-			<url>http://nexus.logo-paas.com:8081/repository/kickstart</url>
+			<url>http://nexus.logo-paas.com:8081/repository/maven-public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
 				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>releases</id>
-			<url>http://nexus.logo-paas.com:8081/repository/kickstart</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>public</id>
-			<url>http://nexus.logo-paas.com:8081/repository/kickstart</url>
+			<url>http://nexus.logo-paas.com:8081/repository/maven-public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
