@@ -105,7 +105,7 @@
 	<repositories>
 		<repository>
 			<id>public</id>
-			<url>http://nexus.logo.com.tr:8081/nexus/content/groups/public</url>
+			<url>http://nexus.logo-paas.com:8081/repository/kickstart</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -115,7 +115,7 @@
 		</repository>
 		<repository>
 			<id>releases</id>
-			<url>http://nexus.logo.com.tr:8081/nexus/content/repositories/releases</url>
+			<url>http://nexus.logo-paas.com:8081/repository/kickstart</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -127,7 +127,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>public</id>
-			<url>http://nexus.logo.com.tr:8081/nexus/content/groups/public</url>
+			<url>http://nexus.logo-paas.com:8081/repository/kickstart</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
