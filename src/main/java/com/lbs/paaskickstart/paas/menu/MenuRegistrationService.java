@@ -65,6 +65,7 @@ public class MenuRegistrationService
 		}
 		catch (RestClientException e)
 		{
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 
@@ -107,7 +108,7 @@ public class MenuRegistrationService
 		menuItemDTO.setDescription(prettyName);
 		menuItemDTO.setHasRight(true);
 
-		menuItemDTO.setId(String.valueOf(LbsGuidUtil.generateGuid(path)));
+		menuItemDTO.setId(String.valueOf(LbsGuidUtil.generateGuid(path + m_AppId)));
 		menuItemDTO.setIsActive(true);
 		menuItemDTO.setIsInNewTab(false);
 		menuItemDTO.setIsUrlRelative(false);
