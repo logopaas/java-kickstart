@@ -17,28 +17,34 @@ public class ArpController {
 	
 	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
 	public String get(@PathVariable("code") String arpCode, @RequestHeader(value="access-token") String accessToken) {
-		return jPlatformArpService.get(arpCode, accessToken);
+		return getjPlatformArpService().get(arpCode, accessToken);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
 	public void update(@RequestBody String arp, @RequestHeader(value="access-token") String accessToken) {
-		jPlatformArpService.update(arp, accessToken);
+		getjPlatformArpService().update(arp, accessToken);
 	}
 
 	@RequestMapping(value = "/{code}", method = RequestMethod.PUT)
 	public void changeStatus(@PathVariable("code") String arpCode, @RequestHeader(value="access-token") String accessToken) {
-		jPlatformArpService.changeStatus(arpCode, accessToken);
+		getjPlatformArpService().changeStatus(arpCode, accessToken);
 
 	}
 	
 	@RequestMapping(value = "/{code}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable("code") String arpCode, @RequestHeader(value="access-token") String accessToken) {
-		jPlatformArpService.delete(arpCode, accessToken);
+		getjPlatformArpService().delete(arpCode, accessToken);
 
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public void create(@RequestBody String[] arps, @RequestHeader(value="access-token") String accessToken) {
-		jPlatformArpService.create(arps, accessToken);
+		getjPlatformArpService().create(arps, accessToken);
+	}
+	
+	public JPlatformARPService getjPlatformArpService() {
+		if( jPlatformArpService == null )
+			jPlatformArpService = new JPlatformARPService();
+		return jPlatformArpService;
 	}
 }

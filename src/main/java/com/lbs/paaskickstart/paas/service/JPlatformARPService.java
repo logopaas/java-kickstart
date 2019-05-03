@@ -6,6 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
@@ -20,16 +21,27 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class JPlatformARPService {
 	
 	private String uri = "http://localhost:8080/logo/restservices/rest/v2.0/arps";
+	private final String ACCESS_TOKEN = "access-token";
 	
 	public String get(String arpCode, String accessToken) {
-		RestTemplate restTemplate = new RestTemplate();
-		String result = null;
+		
 		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(uri).queryParam("arpCode", arpCode);
-		try {
-			result = restTemplate.getForObject(builder.toUriString(), String.class);
-			System.out.println(result);
+		HttpGet get = new HttpGet(builder.toUriString());
+		get.addHeader(ACCESS_TOKEN, accessToken);
+		RequestConfig requestConfig = RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(3000)
+				.setConnectionRequestTimeout(5000).build();
+		String result="";
+		try (CloseableHttpClient httpClient = HttpClientBuilder.create().setDefaultRequestConfig(requestConfig)
+				.build()) {
+
+			HttpResponse response = httpClient.execute(get);
+
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				result = EntityUtils.toString(response.getEntity(), "utf-8");
+			}
 		} catch (Exception e) {
-			System.out.println();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return result;
 	}
@@ -39,7 +51,7 @@ public class JPlatformARPService {
 		StringEntity input = new StringEntity(arp, "utf-8");
 		input.setContentType("application/json");
 		put.setEntity(input);
-
+		put.addHeader(ACCESS_TOKEN, accessToken);
 		RequestConfig requestConfig = RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(3000)
 				.setConnectionRequestTimeout(5000).build();
 
@@ -71,6 +83,7 @@ public class JPlatformARPService {
 		}
 		input.setContentType("application/json");
 		put.setEntity(input);
+		put.addHeader(ACCESS_TOKEN, accessToken);
 		RequestConfig requestConfig = RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(3000)
 				.setConnectionRequestTimeout(5000).build();
 
@@ -92,7 +105,7 @@ public class JPlatformARPService {
 	public void delete(String arpCode, String accessToken) {
 		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(uri).queryParam("arpCode", arpCode);
 		HttpDelete delete = new HttpDelete(builder.toUriString());
-
+		delete.addHeader(ACCESS_TOKEN, accessToken);
 
 		RequestConfig requestConfig = RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(3000)
 				.setConnectionRequestTimeout(5000).build();
@@ -117,7 +130,7 @@ public class JPlatformARPService {
 			StringEntity input = new StringEntity(arps[i], "utf-8");
 			input.setContentType("application/json");
 			post.setEntity(input);
-
+			post.addHeader(ACCESS_TOKEN, accessToken);
 			RequestConfig requestConfig = RequestConfig.copy(RequestConfig.DEFAULT).setConnectTimeout(3000)
 					.setConnectionRequestTimeout(5000).build();
 
