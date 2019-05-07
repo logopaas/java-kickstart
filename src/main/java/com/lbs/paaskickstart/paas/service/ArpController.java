@@ -16,7 +16,8 @@ public class ArpController {
 	private JPlatformARPService jPlatformArpService;
 	
 	@RequestMapping(value = "/{code}", method = RequestMethod.GET)
-	public String get(@PathVariable("code") String arpCode, @RequestHeader(value="access-token") String accessToken) {
+	public String get(@PathVariable("code") String arpCode, @RequestHeader(value="access_token", required = false) String accessToken) {
+		System.out.println(accessToken);
 		return getjPlatformArpService().get(arpCode, accessToken);
 	}
 

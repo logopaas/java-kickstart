@@ -20,7 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class JPlatformARPService {
 	
-	private String uri = "http://localhost:8080/logo/restservices/rest/v2.0/arps";
+	private String uri = "http://dev-jugnu.logo-paas.com:9090/logo/restservices/rest/v2.0/arps";
 	private final String ACCESS_TOKEN = "access-token";
 	
 	public String get(String arpCode, String accessToken) {
